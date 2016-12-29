@@ -15,6 +15,8 @@
 		8C35DDC91DEDCF63006BF9E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C35DDC71DEDCF63006BF9E4 /* LaunchScreen.storyboard */; };
 		8C35DDD41DEDCF63006BF9E4 /* PolygonSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDD31DEDCF63006BF9E4 /* PolygonSampleTests.swift */; };
 		8C35DDDF1DEDCF63006BF9E4 /* PolygonSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDDE1DEDCF63006BF9E4 /* PolygonSampleUITests.swift */; };
+		8C35DDED1DEDDC36006BF9E4 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDEC1DEDDC36006BF9E4 /* Polygon.swift */; };
+		F2F05C261E157B5300A2C827 /* PolygonArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F05C251E157B5300A2C827 /* PolygonArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		8C35DDDA1DEDCF63006BF9E4 /* PolygonSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolygonSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C35DDDE1DEDCF63006BF9E4 /* PolygonSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonSampleUITests.swift; sourceTree = "<group>"; };
 		8C35DDE01DEDCF63006BF9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C35DDEC1DEDDC36006BF9E4 /* Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
+		F2F05C251E157B5300A2C827 /* PolygonArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,9 @@
 			children = (
 				8C35DDBC1DEDCF63006BF9E4 /* AppDelegate.swift */,
 				8C35DDBE1DEDCF63006BF9E4 /* MasterViewController.swift */,
+				F2F05C251E157B5300A2C827 /* PolygonArray.swift */,
 				8C35DDC01DEDCF63006BF9E4 /* DetailViewController.swift */,
+				8C35DDEC1DEDDC36006BF9E4 /* Polygon.swift */,
 				8C35DDC21DEDCF63006BF9E4 /* Main.storyboard */,
 				8C35DDC51DEDCF63006BF9E4 /* Assets.xcassets */,
 				8C35DDC71DEDCF63006BF9E4 /* LaunchScreen.storyboard */,
@@ -196,6 +202,7 @@
 				TargetAttributes = {
 					8C35DDB81DEDCF62006BF9E4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = D2R737286R;
 						ProvisioningStyle = Automatic;
 					};
 					8C35DDCE1DEDCF63006BF9E4 = {
@@ -262,6 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C35DDED1DEDDC36006BF9E4 /* Polygon.swift in Sources */,
+				F2F05C261E157B5300A2C827 /* PolygonArray.swift in Sources */,
 				8C35DDC11DEDCF63006BF9E4 /* DetailViewController.swift in Sources */,
 				8C35DDBF1DEDCF63006BF9E4 /* MasterViewController.swift in Sources */,
 				8C35DDBD1DEDCF63006BF9E4 /* AppDelegate.swift in Sources */,
@@ -414,6 +423,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D2R737286R;
 				INFOPLIST_FILE = PolygonSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.blogspot.rnsm504.PolygonSample;
@@ -426,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D2R737286R;
 				INFOPLIST_FILE = PolygonSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.blogspot.rnsm504.PolygonSample;
@@ -507,6 +518,7 @@
 				8C35DDE51DEDCF63006BF9E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C35DDE61DEDCF63006BF9E4 /* Build configuration list for PBXNativeTarget "PolygonSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +527,7 @@
 				8C35DDE81DEDCF63006BF9E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C35DDE91DEDCF63006BF9E4 /* Build configuration list for PBXNativeTarget "PolygonSampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +536,7 @@
 				8C35DDEB1DEDCF63006BF9E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
