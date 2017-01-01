@@ -15,6 +15,7 @@ enum Polygon : Int {
     case octagonal = 8  // 8角形
     case decagon = 10   // 10角形
     case dodecagon = 12 // 12角形
+    case hexadecagon = 16 // 16角形
     case heptadecagon = 17 // 17角形
     case star = 0
 }
@@ -282,6 +283,140 @@ func polygonPath(rect : CGRect, polygon : Polygon) -> UIBezierPath {
         return path
     }
     
+    
+    func hexadecagon() -> UIBezierPath {
+        let radius : CGFloat = rect.width > rect.height ? rect.height/2 : rect.width/2
+        let centerPoint : CGPoint = CGPoint(x:rect.midX, y:rect.midY)
+        let centerCirlce : Circle = Circle(centerPoint: centerPoint, radius: radius)
+
+        //円Oを通る直線AB
+        let abLine = Line(p1: centerPoint, p2: CGPoint(x: centerPoint.x + 50, y: centerPoint.y))
+        //円Oを通る直線CD
+        let cdLine = Line(p1: centerPoint, p2: CGPoint(x: centerPoint.x, y:centerPoint.y+50))
+        
+        //交点AB
+        let abPoints = getCrossPoint(c1: centerCirlce, l1: abLine)
+        //交点EF
+        let efPoints = getCrossPoint(c1: centerCirlce, l1: cdLine)
+        
+        //円AO
+        let aoCircle = Circle(centerPoint: abPoints[0], radius: radius)
+        
+        //円BO
+        let boCircle = Circle(centerPoint: abPoints[1], radius: radius)
+        
+        //円EO
+        let eoCircle = Circle(centerPoint: efPoints[1], radius: radius)
+        
+        //円FO
+        let foCircle = Circle(centerPoint: efPoints[0], radius: radius)
+        
+        //点G
+        let gPoint = getCrossPoint(c1: aoCircle, c2: eoCircle)[1]
+        
+        //点H
+        let hPoint = getCrossPoint(c1: eoCircle, c2: boCircle)[0]
+        
+        //点I
+        let iPoint = getCrossPoint(c1: foCircle, c2: boCircle)[0]
+        
+        //点J
+        let jPoint = getCrossPoint(c1: aoCircle, c2: foCircle)[0]
+        
+        //線gi
+        let giLine = Line(p1: gPoint, p2: iPoint)
+        
+        //円と線giの交点
+        let giPoints = getCrossPoint(c1: centerCirlce, l1: giLine)
+        
+        //線hj
+        let hjLine = Line(p1: hPoint, p2: jPoint)
+        
+        //円と線hjの交点
+        let hjPoints = getCrossPoint(c1: centerCirlce, l1: hjLine)
+        
+        //線AE
+        let aeLine = Line(p1:abPoints[0] , p2: efPoints[1])
+        
+        //線EB
+        let ebLine = Line(p1: efPoints[1], p2: abPoints[1])
+        
+        //線BF
+        let bfLine = Line(p1: abPoints[1], p2: efPoints[0])
+        
+        //線FA
+        let faLine = Line(p1: efPoints[0], p2: abPoints[0])
+        
+        //交点K
+        let kPoint = getCrossPoint(c1: eoCircle, l1: aeLine)[0]
+        
+        //交点L
+        let lPoint = getCrossPoint(c1: aoCircle, l1: aeLine)[1]
+        
+        //交点M
+        let mPoint = getCrossPoint(c1: boCircle, l1: ebLine)[0]
+        
+        //交点N
+        let nPoint = getCrossPoint(c1: eoCircle, l1: ebLine)[1]
+        
+        //交点P
+        let pPoint = getCrossPoint(c1: foCircle, l1: bfLine)[1]
+        
+        //交点Q
+        let qPoint = getCrossPoint(c1: boCircle, l1: bfLine)[0]
+        
+        //交点R
+        let rPoint = getCrossPoint(c1: aoCircle, l1: faLine)[1]
+        
+        //交点S
+        let sPoint = getCrossPoint(c1: foCircle, l1: faLine)[0]
+        
+        //線lq
+        let lqLine = Line(p1: lPoint, p2: qPoint)
+        
+        //円と線lqの交点
+        let lqPoints = getCrossPoint(c1: centerCirlce, l1: lqLine)
+        
+        //線mr
+        let mrLine = Line(p1: mPoint, p2: rPoint)
+        
+        //円と線mrの交点
+        let mrPoints = getCrossPoint(c1: centerCirlce, l1: mrLine)
+        
+        //線ns
+        let nsLine = Line(p1: nPoint, p2: sPoint)
+        
+        //円と線nsの交点
+        let nsPoints = getCrossPoint(c1: centerCirlce, l1: nsLine)
+        
+        //線pk
+        let pkLine = Line(p1: pPoint, p2: kPoint)
+        
+        //円と線pkの交点
+        let pkPoints = getCrossPoint(c1: centerCirlce, l1: pkLine)
+        
+        let path = UIBezierPath()
+        path.move(to: efPoints[1])
+        path.addLine(to: lqPoints[0])
+        path.addLine(to: giPoints[0])
+        path.addLine(to: pkPoints[0])
+        path.addLine(to: abPoints[0])
+        path.addLine(to: nsPoints[0])
+        path.addLine(to: hjPoints[0])
+        path.addLine(to: mrPoints[0])
+        path.addLine(to: efPoints[0])
+        path.addLine(to: lqPoints[1])
+        path.addLine(to: giPoints[1])
+        path.addLine(to: pkPoints[1])
+        path.addLine(to: abPoints[1])
+        path.addLine(to: nsPoints[1])
+        path.addLine(to: hjPoints[1])
+        path.addLine(to: mrPoints[1])
+        path.close()
+     
+        return path
+    }
+    
     func heptadecagon() -> UIBezierPath {
         let radius : CGFloat = rect.width > rect.height ? rect.height/2 : rect.width/2
         let centerPoint : CGPoint = CGPoint(x:rect.midX, y:rect.midY)
@@ -413,6 +548,8 @@ func polygonPath(rect : CGRect, polygon : Polygon) -> UIBezierPath {
         return decagon()
     case .dodecagon:
         return dodecagon()
+    case .hexadecagon:
+        return hexadecagon()
     case .heptadecagon:
         return heptadecagon()
     }

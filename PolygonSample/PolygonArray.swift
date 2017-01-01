@@ -22,5 +22,6 @@ var polygonArray : NSArray = [
     List(title: "octagonal 8", polygon: Polygon.octagonal),
     List(title: "decagon 10", polygon: Polygon.decagon),
     List(title: "dodecagon 12", polygon: Polygon.dodecagon),
+    List(title: "hexadecagon 16", polygon: Polygon.hexadecagon),
     List(title: "heptadecagon 17", polygon: Polygon.heptadecagon)
 ]
